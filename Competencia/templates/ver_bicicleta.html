@@ -1,0 +1,29 @@
+{% extends 'base.html'%}
+{% block titulo %}
+	{{c.nombre}}
+{% endblock %}
+{% block contenido %}
+	<div class="row container">
+		<table class="striped col s12 m11">
+			<tr>
+				<th>Color:</th>
+				<th>Serie:</th>
+				<th>Marca:</th>
+			
+			</tr>
+			<tr>
+				<td>{{c.color}}</td>
+				<td>{{c.serie}}</td>
+				<td>{{c.marca}}</td>
+				
+		
+			</tr>
+			
+			
+				
+		</table>
+
+	</div>
+	<a href="{% url 'vista_bicicleta' %}">regresar a la lista</a>
+		
+{%endblock%}

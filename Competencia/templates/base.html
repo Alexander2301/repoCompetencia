@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html>
+	<head>
+		<title>
+			{% block titulo %}
+			{% endblock %}
+		</title>
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		<link rel="stylesheet" href="{% static 'css/materialize.css' %}"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	</head>
+	<body style="background-image: url(http://retaildesignblog.net/wp-content/uploads/2016/03/BAIK-bicycle-by-Ion-Lucin-05.jpg);
+	color: white;">
+		<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+		<script>
+			if (!window.jquery) {document.write('<script src="bin/jquery-3.2.1.min.js">');}
+		</script>
+		<script>
+			var elem= document.querySelector('select');
+			var instance = M.FormSelect.init(elem, options);
+
+			$(document).ready(function(){
+				$('select').formSelect();
+			});
+			function check() {
+    			document.getElementById("status").checked = true;
+			}
+			var elem = document.querySelector('.dropdown-trigger');
+			var instance = M.Dropdown.init(elem, options);
+
+			// Or with jQuery
+
+			$('.dropdown-trigger').dropdown();
+		</script>
+		<script src="http://materializecss.com/js/init.js"></script>
+		<nav>
+		    <div class=" nav-wrapper blue-grey">      	
+				<ul id="nav-mobile" class="right hide-on-med-and-down">
+					<li><a href="{% url 'vista_inicio' %}">Inicio</a></li>
+					
+
+					<a class='dropdown-trigger btn' data-target='dropdown1'>listas</a>
+
+					<ul id='dropdown1' class='dropdown-content'>
+						<li><a href=""></a></li>
+						<li><a href="{% url 'vista_corredor' %}">Corredores</a></li>
+						<li><a href="{% url 'vista_bicicleta' %}">Bicicletas</a>
+						<li><a href="{% url 'vista_marca' %}">Marcas</a>
+						<li><a href="{% url 'vista_categoria' %}">Categorias</a>
+						<li><a href="{% url 'vista_nacionalidad' %}">Nacionalidades</a>
+						<li><a href="{% url 'vista_competencia' %}">Competencias</a>
+					</ul>
+					<ul class="right hide-on-med-and-down">
+						{{User.username}}
+							<li><a href="{% url 'user_logout' %}">Logout</a></li>
+					</ul>
+					
+					
+				</ul>
+		    </div>
+	    </nav>
+		
+	{% block contenido %}
+			
+
+	{% endblock %}
+
+	{% block footer %}
+		<footer>
+		 <div class="card-panel blue-grey">
+			<div class="footer-copyright">
+	            <div class="container">
+	            	© 2018 django aprendizaje
+	            </div>
+	      	</div>
+	      </div>
+	    </footer>
+	{% endblock  %}
+	</body>
+	<script type="text/javascript" src="{% static 'js/materialize.js' %}"></script>
+</html>

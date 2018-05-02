@@ -1,0 +1,18 @@
+{% extends 'base.html'%}
+{% block titulo%}
+{% endblock%} 
+{% block contenido%}
+	<div class="row container">
+	    <form action="" method="POST" enctype="multipart/form-data" class="col s8 grey lighten-2 blue-text" >
+      	 {% csrf_token %}
+	     {{ formulary.as_p}}
+	     
+		    <input type="submit" value="Agregar corredor">
+
+	    </form>
+    </div>
+       
+{% endblock%}
+{% block footer %}
+	
+{% endblock  %}

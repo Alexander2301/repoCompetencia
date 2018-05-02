@@ -1,0 +1,38 @@
+{% load staticfiles %}
+<html>
+	<head>
+		<title>Inicio</title>
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		<link rel="stylesheet" href="{% static 'css/materialize.css' %}"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	</head>
+	<body style="background-image: url(https://st3.depositphotos.com/2492641/13911/v/1600/depositphotos_139119958-stock-illustration-bicycle-typography-word-cloud-colorful.jpg);">
+		<div class="row container" style="margin-top: 200px;">
+			<div class="col s12 m7 ">
+			    <div class="card horizontal grey lighten-2">
+			    	<div class="card-image">
+			          <img src="http://laughteryoga.es/images/REGISTRO_AQUI_1.png" height="300px;">
+			        </div>
+			        <div class="card-content">
+				      	<h2>{{msj}}</h2>
+				      	<form action="" method="POST"  class="">
+			 				{% csrf_token %}
+			 				{{formulario.as_p}}
+			 				<input class="btn" type="submit" value="Registrarse">
+			 				<a class="btn" href="{% url 'vista_login' %}">login</a>
+			 			</form>
+			 		</div>
+			    </div>
+			</div>
+		</div>
+		<footer>
+		 <div class="card-panel blue-grey">
+			<div class="footer-copyright">
+	            <div class="container">
+	            	© 2018 django aprendizaje
+	            </div>
+	      	</div>
+	      </div>
+	    </footer>
+	</body>
+</html>

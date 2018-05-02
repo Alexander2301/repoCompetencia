@@ -1,0 +1,35 @@
+{%extends 'base.html'%}
+
+{% block titulo%}
+	lista bicicleta
+{%endblock%}
+
+{%block contenido%}
+	<div class="container">
+		<h1>lista de Bicicletas</h1>
+		<table border="1" class="highlight ">
+			<tr>
+				<th>ID</th>
+				<th><strong>NOMBRE</strong></th>
+				
+			</tr>
+			{%for c in lista2%}
+
+
+				<tr>
+
+					<td>{{c.id}}</td>
+					<td>{{c.serie}}</td>
+					<td><a href="{% url 'vista_ver_bicicleta' id_bic=c.id %}">ver detalle</a></td>
+					<td><a href="{% url 'vista_editar_bicicleta' id_bic=c.id %}">Editar</a></td>
+					<td><a href="{% url 'vista_eliminar_bicicleta' id_bic=c.id %}">Eliminar</a></td>
+
+				</tr>
+				
+			{%endfor%}
+
+		</table>
+		<a class="btn-floating " href="{% url 'vista_agregar_bicicleta' %}"><i class="material-icons">add</i>agregar corredor</a>
+	</div>
+	
+{%endblock%}

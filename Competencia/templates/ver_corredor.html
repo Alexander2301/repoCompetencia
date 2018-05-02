@@ -1,0 +1,62 @@
+{% extends 'base.html'%}
+{% block titulo %}
+	{{c.nombre}}
+{% endblock %}
+{% block contenido %}
+	<table class="striped col s8">
+		<tr>
+			<th>Nombre:</th>
+			<th>Edad:</th>
+			<th>Bicicleta:</th>
+			<th>Nacionalidad:</th>
+			<th>Categoria:</th>
+			<th>Competencia:</th>
+			<th>Foto:</th>
+		</tr>
+		<tr>
+			<td>{{c.nombre}}</td>
+			<td>{{c.edad}}</td>
+			<td>{% for b in Bicicleta %}
+					<span class="label label-info">{{b.nombre}}</span>
+				{% endfor %}
+				{% if c.bicicleta.all %}
+					{% for bc in c.bicicleta.all %}
+						{{bc}}
+					{% endfor %}
+				{%else%}
+					<p>Sin bicicleta</p>
+				{% endif %}</td></td>
+			<td>{{c.nacionalidad}}</td>
+			<td>{% for t in Categoria %}
+					<span class="label label-info">{{t.nombre}}</span>
+				{% endfor %}
+				{% if c.categoria.all %}
+					{% for tc in c.categoria.all %}
+						{{tc}}
+					{% endfor %}
+				{%else%}
+					<p>Sin Categoria</p>
+				{% endif %}</td>
+
+			<td>{% for n in Competencia %}
+				<span class="label label-info">{{n.nombre}}</span>
+				{% endfor %}
+				{% if c.competencia.all %}
+					{% for nc in c.competencia.all %}
+						{{nc}}
+					{% endfor %}
+				{%else%}
+					<p>Sin Competencia</p>
+				{% endif %}</td>
+			<td>
+				<img src="/media/{{c.foto}}" width="250px">
+			</td>
+		</tr>
+		
+			
+				
+	</table>
+		
+
+	<a href="{% url 'vista_corredor' %}">regresar a la lista</a>
+{%endblock%}

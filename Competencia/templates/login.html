@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html>
+	<head>
+		<title>Inicio</title>
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		<link rel="stylesheet" href="{% static 'css/materialize.css' %}"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	</head>
+	<body style="background-image: url(https://st3.depositphotos.com/2492641/13911/v/1600/depositphotos_139119958-stock-illustration-bicycle-typography-word-cloud-colorful.jpg);">
+		<div class="row container">
+		    <div class="col s12 m9 " >
+		      <div class="card horizontal">
+		      	<div class="card-image">
+		          <img src="http://www.elcomercio.com/files/article_main/uploads/2015/01/17/54bb22d91e6ef.jpg" height="300px">
+		        </div>
+		        <div class="card-content">
+			      	<h2>{{msj}}</h2>
+			      	<form action="" method="POST" >
+						{% csrf_token %}
+						{{formulario.as_p}}
+						<input class="btn " type="submit" value="login">
+						<a class="btn" href="{% url 'vista_register' %}">Registrar</a>
+					</form>
+			      </div>
+			    </div>
+			</div>
+		</div>
+		<footer>
+		 <div class="card-panel blue-grey">
+			<div class="footer-copyright">
+	            <div class="container">
+	            	© 2018 django aprendizaje
+	            </div>
+	      	</div>
+	      </div>
+	    </footer>
+	</body>
+
+	<style type="text/css">
+		.row{
+			margin-top:250px ;
+		}
+	</style>
+</html>
+
+	
+
+

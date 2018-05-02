@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block titulo %}
+	lista marca
+{% endblock %}
+{% block contenido%}
+	<h1>listas de las marcas</h1>
+	<table border="1">
+		<tr>
+			<td><strong>ID</strong></td>
+			<td><strong>NOMBRE</strong></td>
+		</tr>
+		{%for m in listar%}
+			<tr>
+				<th>{{m.id}}</th>
+				<th>{{m.nombre}}</th>
+			</tr>
+		{%endfor%}
+	</table>
+{% endblock %}
