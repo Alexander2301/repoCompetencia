@@ -9,6 +9,7 @@ class Marca(models.Model):
 
 class Bicicleta(models.Model):
 	color = models.CharField(max_length= 50)
+	color = models.CharField(max_length= 50)
 	serie= models.CharField(max_length= 20)
 	marca = models.ForeignKey(Marca, on_delete= models.CASCADE)
 
